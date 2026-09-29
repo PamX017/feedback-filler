@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form Filler — Personalized feedback cards, instantly.</title>
+    <meta name="description" content="Create personalized feedback cards instantly. Enter a name, preview the design, and download a high-quality PNG ready to share.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    <path d="M12 6l0 7"/>
+                    <path d="M9 9l3-3 3 3"/>
+                </svg>
+            </div>
+            <div>
+                <h1 class="header-title">Feedback Form Filler</h1>
+                <p class="header-subtitle">Personalized feedback cards, instantly.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Left Panel: Controls -->
+        <section class="controls-panel" aria-label="Controls">
+            <div class="controls-card">
+                <div class="card-decoration"></div>
+                <h2 class="controls-heading">Create Your Card</h2>
+                
+                <div class="input-group">
+                    <label for="nameInput" class="input-label">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                        </svg>
+                        Enter Name
+                    </label>
+                    <input 
+                        type="text" 
+                        id="nameInput" 
+                        class="name-input" 
+                        placeholder="e.g. Nilofer Sultana Person"
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                    <p class="input-helper">Enter a name to personalize the feedback form.</p>
+                </div>
+
+                <div class="button-group">
+                    <button id="downloadBtn" class="btn btn-primary" type="button">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download Feedback Form
+                    </button>
+                    <div class="btn-row">
+                        <button id="createAnotherBtn" class="btn btn-secondary" type="button">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 5v14"/>
+                                <path d="M5 12h14"/>
+                            </svg>
+                            Create Another
+                        </button>
+                        <button id="resetBtn" class="btn btn-ghost" type="button">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="1 4 1 10 7 10"/>
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                            </svg>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Download status -->
+                <div id="downloadStatus" class="download-status" aria-live="polite"></div>
+            </div>
+
+            <!-- Quick Tips -->
+            <div class="tips-card">
+                <h3 class="tips-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4"/>
+                        <path d="M12 8h.01"/>
+                    </svg>
+                    Quick Tips
+                </h3>
+                <ul class="tips-list">
+                    <li>Type any name — preview updates instantly</li>
+                    <li>Long names auto-scale to fit perfectly</li>
+                    <li>Download as high-quality PNG</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Right Panel: Preview -->
+        <section class="preview-panel" aria-label="Preview">
+            <div class="preview-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Live Preview
+            </div>
+            <div class="preview-container" id="previewContainer">
+                <div class="preview-wrapper" id="previewWrapper">
+                    <img 
+                        src="assets/template.jpg" 
+                        alt="Feedback form template" 
+                        class="template-image" 
+                        id="templateImage"
+                        draggable="false"
+                    >
+                    <div class="name-overlay" id="nameOverlay">
+                        <span id="nameText">Nilofer Sultana Person</span>
+                    </div>
+                </div>
+            </div>
+            <p class="preview-hint" id="previewHint">Showing default example — type a name to customize</p>
+        </section>
+    </main>
+
+    <!-- Hidden Canvas for Download -->
+    <canvas id="renderCanvas" style="display: none;"></canvas>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with <span class="heart">♥</span> for personalized feedback</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
