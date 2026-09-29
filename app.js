@@ -275,8 +275,11 @@
             ctx.imageSmoothingEnabled = true;
             ctx.imageSmoothingQuality = 'high';
 
-            // Draw the name
+            // Draw the name (with slight stroke for boldness)
             ctx.fillText(name, textX, textY);
+            ctx.strokeStyle = CONFIG.font.color;
+            ctx.lineWidth = 0.8;
+            ctx.strokeText(name, textX, textY);
 
             // Export as PNG blob
             canvas.toBlob(
